@@ -1,0 +1,6 @@
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Infra\bin\Debug\Leilao.Infra.dll
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Infra\bin\Debug\Leilao.Infra.pdb
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Infra\obj\Debug\Leilao.Infra.csprojAssemblyReference.cache
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Infra\obj\Debug\Leilao.Infra.csproj.CoreCompileInputs.cache
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Infra\obj\Debug\Leilao.Infra.dll
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Infra\obj\Debug\Leilao.Infra.pdb

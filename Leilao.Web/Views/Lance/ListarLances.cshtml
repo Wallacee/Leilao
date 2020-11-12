@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "ListarLances";
+}
+
+<h2>Lista de Lances</h2>
+
+<div id="table">
+    <table id="grid-data" width="100%" class="table table-bordered table-hover table-condensed table-striped table-light table-sm table-truncate">
+        <thead>
+            <tr>
+                <th class="table-truncate-col" width="40%">Pessoa</th>
+                <th class="table-truncate-col" width="40%">Produto</th>
+                <th class="table-truncate-col" width="20%">Valor(R$)</th>
+            
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/datatables")
+<script type="text/javascript">
+    $(document).ready(function () { 
+    var urlListar = "@Url.Action("ListarPaginado")";
+    setTable()
+    function setTable() {
+        var grid = $("#grid-data").DataTable({
+            processing: true,
+            serverSide: true,
+            filter: true,
+            orderMulti: false,
+            autoWidth: true,
+            ajax: {
+                url: urlListar,
+                type: "POST",
+            },
+            "columns": [
+                {
+                    'name': 'nomePessoa',
+                    'render': function (data, type, row) {
+                        return row.nomePessoa;
+                    }
+                },
+                {
+                    'name': 'nomeProduto',
+                    'render': function (data, type, row) {
+                        return row.nomeProduto;
+                    }
+                },
+                {
+                    'name': 'valor',
+                    'render': function (data, type, row) {
+                        return row.valor
+                    }
+                }
+            ],
+            language: {
+                zeroRecords: "Nenhum resultado encontrado",
+                search: "Pesquisar",
+                processing: "Carregando...",
+                loadingRecords: "Carregando...",
+                paginate: {
+                    "next": "Próximo",
+                    "previous": "Anterior"
+                },
+                infoFiltered: "",
+                info: "",
+                infoEmpty: "",
+                lengthMenu: ""
+            },
+        })
+        return grid;
+        }
+    })
+
+</script>

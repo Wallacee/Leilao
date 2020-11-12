@@ -1,0 +1,8 @@
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Model\bin\Debug\Leilao.Model.dll
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Model\bin\Debug\Leilao.Model.pdb
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Model\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Model\obj\Debug\Leilao.Model.csprojAssemblyReference.cache
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Model\obj\Debug\Leilao.Model.csproj.CoreCompileInputs.cache
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Model\obj\Debug\Leilao.Model.csproj.CopyComplete
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Model\obj\Debug\Leilao.Model.dll
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.Model\obj\Debug\Leilao.Model.pdb

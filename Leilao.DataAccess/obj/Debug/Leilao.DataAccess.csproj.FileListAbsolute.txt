@@ -1,0 +1,17 @@
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\bin\Debug\Leilao.DataAccess.dll.config
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\bin\Debug\Leilao.DataAccess.dll
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\bin\Debug\Leilao.DataAccess.pdb
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\bin\Debug\Leilao.Model.dll
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\bin\Debug\Leilao.Model.pdb
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\obj\Debug\Leilao.DataAccess.csprojAssemblyReference.cache
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\obj\Debug\Leilao.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\obj\Debug\Leilao.DataAccess.csproj.CopyComplete
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\obj\Debug\Leilao.DataAccess.dll
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\obj\Debug\Leilao.DataAccess.pdb
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\obj\Debug\Leilao.DataAccess.Migrations.DBBegin.resources
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\obj\Debug\Leilao.DataAccess.csproj.GenerateResource.cache
+C:\Users\cepedi-note\source\repos\Leilao\Leilao.DataAccess\obj\Debug\Leilao.DataAccess.Migrations.MudarTipoAtributoNomePessoa.resources

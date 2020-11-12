@@ -1,0 +1,161 @@
+﻿@model Leilao.Model.Pessoa
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Nova Pessoa</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Idade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Idade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Idade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<table id="grid-data" width="100%" class="table table-bordered table-hover table-condensed table-striped table-light table-sm table-truncate">
+    <thead>
+        <tr>
+            <th width="80%" class="table-truncate-col">Nome</th>
+            <th width="15%" class="table-truncate-col">Idade</th>
+            <th width="15%" class="table-truncate-col">Ações</th>
+        </tr>
+    </thead>
+</table>
+<div id="myModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Iniciciando Leilão</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button id="carrega-leilao" type="button" class="btn btn-primary">Leilão</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/datatables")
+<script type="text/javascript">
+    var urlListar = "@Url.Action("Listar")";
+    var urlListarProdutos = "@Url.Action("Listar","Produto")";
+    var urlCarregaLeilao = "@Url.Action("IniciarLeilao","Lance")";
+
+    $(document).ready(function () {
+            var grid = $("#grid-data").DataTable({
+                processing: true,
+                serverSide: true,
+                filter: true,
+                orderMulti: false,
+                autoWidth: true,
+                ajax: {
+                    url: urlListar,
+                    type: "GET",
+                },
+                "columns": [
+                    {
+                        'nome': 'Nome',
+                        'render': function (data, type, row) {
+                            return row.Nome;
+                        }
+                    },
+
+                    {
+                        'idade': 'Idade',
+                        'render': function (data, type, row) {
+                            return row.Idade;
+                        }
+                    },
+                    {
+
+                        'render': function (data, type, row) {
+                            var button = '';
+                            button += "<button type='button' title='Leilão' class='btn btn-circle btn-circle-sm btn-default command-leilao' href='javascript:void(0)' data-row-id='" + row.Id + "'>Leilão</span></button>&nbsp";
+                            return button;
+                        }
+                    }
+                ],
+                language: {
+                    zeroRecords: "Nenhum Resultado Encontrado",
+                    search: "Pesquisar",
+                    processing: "Carregando" + '...',
+                    loadingRecords: "Carregando" + '...',
+                    paginate: {
+                        "next": "Proximo",
+                        "previous": "Anterior"
+                    }
+                },
+            }).on('click', '.command-leilao', function () {
+                var pessoaId = $(this).data("row-id");
+                var urlListaProdutos = urlListarProdutos;
+                $.ajax({
+                    url: urlListarProdutos,
+                    success: function (result) {
+                        $('.modal-body').html('<p>Selecione um produto para participar do leilão.</p><select id="down"></select>')
+                        var $select = $('#down');
+                        $select.find('option').remove();
+                        $.each(result.data, function (key, value) {
+                            $select.append($("<option />").val(this.Id).text(this.Nome));
+                        });
+                    }
+                });
+
+                $('#myModal').modal('show');
+
+                $("#carrega-leilao").click(function () {
+                    var produtoSelecionadoId = $("#down option:selected").val();
+                    $.ajax({
+                        url: urlCarregaLeilao,
+                        method: "GET",
+                        data: { idPessoa: pessoaId, produtoId: produtoSelecionadoId },
+                        success: function (result) {
+                            $(".modal-body").html(result)
+                        }
+                    });
+                })
+
+            });
+
+            return grid;
+
+    })
+</script>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
